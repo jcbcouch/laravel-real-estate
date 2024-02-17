@@ -5,6 +5,8 @@ use App\Models\Realtor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminListingController;
+use App\Http\Controllers\AdminRealtorController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\RealtorController;
 
@@ -43,14 +45,15 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 Route::get('/search', [ListingController::class, 'search']);
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
-Route::get('/admin/listings', [AdminController::class, 'listings'])->middleware(['auth', 'admin']);
-Route::get('/admin/listings/create', [ListingController::class, 'create']);
-Route::post('/admin/listings', [ListingController::class, 'store']);
-Route::get('/admin/listings/{listing}/edit', [AdminController::class, 'edit'])->middleware(['auth', 'admin']);
-Route::put('/admin/listings/{listing}', [AdminController::class, 'update'])->middleware(['auth', 'admin']);
+Route::get('/admin/listings', [AdminListingController::class, 'listings'])->middleware(['auth', 'admin']);
+Route::get('/admin/listings/create', [AdminListingController::class, 'create']);
+Route::post('/admin/listings', [AdminListingController::class, 'store']);
+Route::get('/admin/listings/{listing}/edit', [AdminListingController::class, 'edit'])->middleware(['auth', 'admin']);
+Route::put('/admin/listings/{listing}', [AdminListingController::class, 'update'])->middleware(['auth', 'admin']);
+Route::delete('/admin/listings/{listing}', [AdminListingController::class, 'destroy'])->middleware('auth');
 
 
-
+Route::get('/admin/realtors', [AdminRealtorController::class, 'realtors'])->middleware(['auth', 'admin']);
 Route::get('/admin/realtors/create', [RealtorController::class, 'create']);
 Route::post('/admin/realtors', [RealtorController::class, 'store']);
 

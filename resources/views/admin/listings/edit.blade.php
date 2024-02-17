@@ -73,8 +73,13 @@
 
     <!-- Content -->
     <div id="content" class="colM">
+        <form method="POST" action='/admin/listings/{{$listing->id}}'>
+                @csrf
+                @method('DELETE')
+                <button class="text-red-500">DELETE
+                </button>
+            </form>
         
-        <h1>Add listing</h1>
         <div id="content-main">
 
 
@@ -515,7 +520,12 @@
 
 </div>
 </form></div>
-
+<form method="POST" action='/admin/listings/{{$listing->id}}'>
+        @csrf
+        @method('DELETE')
+        <button class="text-red-500">DELETE
+        </button>
+    </form>
         
         <br class="clear">
     </div>
