@@ -1,72 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en-us" >
-<head>
-<title></title>
-
-<link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
-
-
-
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+<x-admin>
     
-
-<meta name="robots" content="NONE,NOARCHIVE">
-</head>
-
-
-<body class=" app-realtors model-realtor change-form"
-  data-admin-utc-offset="0">
-
-<!-- Container -->
-<div id="container">
-
-    
-    <!-- Header -->
-    <div id="header">
-        <div id="branding">
-        
-  <h1 id="head">
-    <img src="/static/img/logo.png" alt="BT Real Estate" height="50" width="80" class="brand_img"> Admin Area
-  </h1>
-
-        </div>
-        
-        
-        <div id="user-tools">
-            
-                Welcome,
-                <strong>jcbcouch</strong>.
-            
-            
-                
-                    <a href="/">View site</a> /
-                
-                
-                    
-                    
-                
-                
-                <a href="/admin/password_change/">Change password</a> /
-                
-                <a href="/admin/logout/">Log out</a>
-            
-        </div>
-        
-        
-        
-    </div>
-    <!-- END Header -->
-    
-<div class="breadcrumbs">
-<a href="/admin/">Home</a>
-&rsaquo; <a href="/admin/realtors/">Realtors</a>
-&rsaquo; <a href="/admin/realtors/realtor/">Realtors</a>
-&rsaquo; Add realtor
-</div>
+        <div class="breadcrumbs">
+                <a href="/admin/">Admin</a>
+                &rsaquo; <a href="/admin/realtors/">Realtors</a>
+                &rsaquo; Create Realtor
+                </div>
 
     
 
@@ -232,8 +170,8 @@
 <input type="submit" value="Save" class="default" name="_save">
 
 
-<input type="submit" value="Save and add another" name="_addanother">
-<input type="submit" value="Save and continue editing" name="_continue">
+{{-- <input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue"> --}}
 
 
 </div>
@@ -264,11 +202,4 @@
         
         <br class="clear">
     </div>
-    <!-- END Content -->
-
-    <div id="footer"></div>
-</div>
-<!-- END Container -->
-
-</body>
-</html>
+</x-admin>

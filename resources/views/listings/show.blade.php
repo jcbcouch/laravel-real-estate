@@ -168,10 +168,14 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method='POST' action="/contact">
+            @csrf
             <div class="form-group">
+              <input type="hidden" name="listing_id" value="{{$listing->id}}" >
+              <input type="hidden" name="listing" value="{{$listing->title}}" >
+
               <label for="property_name" class="col-form-label">Property:</label>
-              <input type="text" name="listing" class="form-control" value="45 Drivewood Cirlce" disabled>
+              <input type="text" name="listing" class="form-control" value="{{$listing->title}}" disabled>
             </div>
             <div class="form-group">
               <label for="name" class="col-form-label">Name:</label>

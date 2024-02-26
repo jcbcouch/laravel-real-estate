@@ -8,8 +8,6 @@
           <h1 class="display-4 mb-4">
             Property Searching Just Got So Easy
           </h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores eveniet vel nostrum magnam
-            voluptatum tempore! Consectetur, id commodi!</p>
           <div class="search">
             <form action="/search">
               <!-- Form Row 1 -->
@@ -131,6 +129,7 @@
       <div class="row">
         <!-- Listing 1 -->
         @foreach ($listings as $listing)
+        @if($listing->is_published == 1)
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card listing-preview">
             <img class="card-img-top" src="{{$listing->photo_main ? asset('storage/' . $listing->photo_main) : asset('/images/house.jpg')}}" alt="">
@@ -172,6 +171,7 @@
             </div>
           </div>
         </div>
+        @endif
         @endforeach
 
       </div>

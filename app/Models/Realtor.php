@@ -16,8 +16,13 @@ class Realtor extends Model
         'email',
         'phone',
         'is_mvp',
-        // 'hire_date',
     ];
+
+    public function scopeFilter($query, array $filters) {
+        if($filters['name'] ?? false) {
+            $query->where('name', 'like', '%' . request('name') . '%');
+        }
+    }
 
     public function listings() {
         return $this->hasMany(Listing::class, 'realtor_id');

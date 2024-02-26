@@ -1,71 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en-us" >
-<head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/changelists.css') }}">  
-<link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
-
-
-
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+<x-admin>
     
-
-<meta name="robots" content="NONE,NOARCHIVE">
-</head>
-
-
-<body class=" app-realtors model-realtor change-list"
-  data-admin-utc-offset="0">
-
-<!-- Container -->
-<div id="container">
-
-    
-    <!-- Header -->
-    <div id="header">
-        <div id="branding">
-        
-  <h1 id="head">
-    <img src="/static/img/logo.png" alt="BT Real Estate" height="50" width="80" class="brand_img"> Admin Area
-  </h1>
-
-        </div>
-        
-        
-        <div id="user-tools">
-            
-                Welcome,
-                <strong>jcbcouch</strong>.
-            
-            
-                
-                    <a href="/">View site</a> /
-                
-                
-                    
-                    
-                
-                
-                <a href="/admin/password_change/">Change password</a> /
-                
-                <a href="/admin/logout/">Log out</a>
-            
-        </div>
-        
-        
-        
+  <div class="breadcrumbs">
+    <a href="/admin/">Admin</a>
+    &rsaquo; <a href="/admin/realtors/">Realtors</a>
+    &rsaquo; List
     </div>
-    <!-- END Header -->
-    
-<div class="breadcrumbs">
-<a href="/admin/">Home</a>
-&rsaquo; <a href="/admin/realtors/">Realtors</a>
-&rsaquo; Realtors
-</div>
 
     
 
@@ -88,7 +27,7 @@
   
   <li>
     
-    <a href="/admin/realtors/realtor/add/" class="addlink">
+    <a href="/admin/realtors/create" class="addlink">
       Add realtor
     </a>
   </li>
@@ -105,7 +44,7 @@
 <div id="toolbar"><form id="changelist-search" method="get">
 <div><!-- DIV needed for valid HTML -->
 <label for="searchbar"><img src="/static/admin/img/search.svg" alt="Search"></label>
-<input type="text" size="40" name="q" value="" id="searchbar" autofocus>
+<input type="text" size="40" name="name" value="" id="searchbar" autofocus>
 <input type="submit" value="Search">
 
 
@@ -124,7 +63,7 @@
 
       
           
-<div class="actions">
+{{-- <div class="actions">
   
     
     <label>Action: <select name="action" required>
@@ -144,7 +83,7 @@
     
     
   
-</div>
+</div> --}}
 
           
 
@@ -184,7 +123,7 @@
    
      
    
-   <div class="text"><a href="?o=4">Hire date</a></div>
+   <div class="text"><a href="?o=4">seller of the month</a></div>
    <div class="clear"></div>
 </th>
 </tr>
@@ -194,27 +133,28 @@
   @foreach ($realtors as $realtor)
 <tr class="row1">
   {{-- <td class="action-checkbox"><input type="checkbox" name="_selected_action" value="1" class="action-select"></td> --}}
-  <th class="field-id"><a href="/admin/realtors/realtor/1/change/">{{$realtor->id}}</a></th>
-  <td class="field-name"><a href="/admin/realtors/realtor/1/change/">{{$realtor->name}}</a></td>
+  <th class="field-id"><a href="/admin/realtors/{{$realtor->id}}/edit">{{$realtor->id}}</a></th>
+  <td class="field-name"><a href="/admin/realtors/{{$realtor->id}}/edit">{{$realtor->name}}</a></td>
   <td class="field-email">{{$realtor->email}}</td>
-  <td class="field-hire_date nowrap">Feb. 6, 2024, 11:36 a.m.</td>
+  <td>@if($realtor->is_mvp == 1)<img src="{{asset('images/icon-yes.svg')}}" alt="True">@endif</td>
 </tr>
 @endforeach
 </tbody>
 </table>
+{{$realtors->links()}}
 </div>
 
 
           
       
       
-
+{{-- 
 <p class="paginator">
 
 1 realtor
 
 
-</p>
+</p> --}}
 
       </form>
     </div>
@@ -223,11 +163,4 @@
         
         <br class="clear">
     </div>
-    <!-- END Content -->
-
-    <div id="footer"></div>
-</div>
-<!-- END Container -->
-
-</body>
-</html>
+  </x-admin>

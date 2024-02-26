@@ -47,6 +47,12 @@ class Listing extends Model
         if($filters['price'] ?? false) {
             $query->where('price', '<=', request('price'));
         }
+        if($filters['title'] ?? false) {
+            $query->where('title', 'like', '%' . request('title') . '%');
+        }
+        if($filters['keywords'] ?? false) {
+            $query->where('description', 'like', '%' . request('keywords') . '%');
+        }
 
         // if($filters['search'] ?? false) {
         //     $query->where('title', 'like', '%' . request('search') . '%')

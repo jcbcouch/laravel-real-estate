@@ -1,69 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en-us" >
-<head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
-
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+<x-admin>
     
-
-<meta name="robots" content="NONE,NOARCHIVE">
-</head>
-
-
-<body class=" app-listings model-listing change-form"
-  data-admin-utc-offset="0">
-
-<!-- Container -->
-<div id="container">
-
-    
-    <!-- Header -->
-    <div id="header">
-        <div id="branding">
-        
-  <h1 id="head">
-    <img src="/static/img/logo.png" alt="BT Real Estate" height="50" width="80" class="brand_img"> Admin Area
-  </h1>
-
-        </div>
-        
-        
-        <div id="user-tools">
-            
-                Welcome,
-                <strong>jcbcouch</strong>.
-            
-            
-                
-                    <a href="/">View site</a> /
-                
-                
-                    
-                    
-                
-                
-                <a href="/admin/password_change/">Change password</a> /
-                
-                <a href="/admin/logout/">Log out</a>
-            
-        </div>
-        
-        
-        
-    </div>
-    <!-- END Header -->
-    
-<div class="breadcrumbs">
-<a href="/admin/">Home</a>
-&rsaquo; <a href="/admin/listings/">Listings</a>
-&rsaquo; <a href="/admin/listings/listing/">Listings</a>
-&rsaquo; Add listing
-</div>
+        <div class="breadcrumbs">
+                <a href="/admin/">Admin</a>
+                &rsaquo; <a href="/admin/listings/">Listings</a>
+                &rsaquo; Create Listing
+                </div>
 
     
 
@@ -103,20 +44,20 @@
                         
                             <div class="related-widget-wrapper">
     <select name="realtor_id" required id="id_realtor">
-  <option value="" selected>---------</option>
+  {{-- <option value="" selected>---------</option> --}}
   @foreach ($realtors as $realtor)
   <option value="{{$realtor->id}}">{{$realtor->name}}</option>
   @endforeach
 
 </select>
     
-        <a class="related-widget-wrapper-link change-related" id="change_id_realtor"
+        {{-- <a class="related-widget-wrapper-link change-related" id="change_id_realtor"
             data-href-template="/admin/realtors/realtor/__fk__/change/?_to_field=id&amp;_popup=1"
             title="Change selected realtor"><img src="/static/admin/img/icon-changelink.svg" alt="Change"></a><a class="related-widget-wrapper-link add-related" id="add_id_realtor"
             href="/admin/realtors/realtor/add/?_to_field=id&amp;_popup=1"
             title="Add another realtor"><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a><a class="related-widget-wrapper-link delete-related" id="delete_id_realtor"
             data-href-template="/admin/realtors/realtor/__fk__/delete/?_to_field=id&amp;_popup=1"
-            title="Delete selected realtor"><img src="/static/admin/img/icon-deletelink.svg" alt="Delete"></a>
+            title="Delete selected realtor"><img src="/static/admin/img/icon-deletelink.svg" alt="Delete"></a> --}}
     
 </div>
                         
@@ -571,11 +512,4 @@
         
         <br class="clear">
     </div>
-    <!-- END Content -->
-
-    <div id="footer"></div>
-</div>
-<!-- END Container -->
-
-</body>
-</html>
+</x-admin>

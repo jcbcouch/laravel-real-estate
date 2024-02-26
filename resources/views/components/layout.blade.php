@@ -43,13 +43,16 @@
         <ul class="navbar-nav ml-auto">
           @auth
           <li class="nav-item mr-3">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item mr-3">
             <form class="inline" method="POST" action="/logout">
               @csrf
               <button style="background: none!important;
               border: none;
               padding: 0!important;
               cursor: pointer;" type="submit">
-                 <a class="nav-item nav-link">Logout</a>
+                 <a class="nav-item nav-link">LOGOUT</a>
               </button>
             </form>
           </li>
@@ -75,7 +78,7 @@
   <!-- Footer -->
   <footer id="main-footer" class="py-4 bg-primary text-white text-center">
     Copyright &copy;
-    <span class="year"></span> BT Real Estate
+    <span class="year"></span> Real Estate
   </footer>
 
   <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>

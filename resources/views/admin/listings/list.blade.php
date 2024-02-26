@@ -1,69 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="en-us" >
-<head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="{{ asset('css/base.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/changelists.css') }}">  
-<link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
-  
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+<x-admin>
     
-
-<meta name="robots" content="NONE,NOARCHIVE">
-</head>
-
-
-<body class=" app-listings model-listing change-list"
-  data-admin-utc-offset="0">
-
-<!-- Container -->
-<div id="container">
-
-    
-    <!-- Header -->
-    <div id="header">
-        <div id="branding">
-        
-  <h1 id="head">
-    <img src="/static/img/logo.png" alt="BT Real Estate" height="50" width="80" class="brand_img"> Admin Area
-  </h1>
-
-        </div>
-        
-        
-        <div id="user-tools">
-            
-                Welcome,
-                <strong>jcbcouch</strong>.
-            
-            
-                
-                    <a href="/">View site</a> /
-                
-                
-                    
-                    
-                
-                
-                <a href="/admin/password_change/">Change password</a> /
-                
-                <a href="/admin/logout/">Log out</a>
-            
-        </div>
-        
-        
-        
+  <div class="breadcrumbs">
+    <a href="/admin/">Admin</a>
+    &rsaquo; <a href="/admin/listings/">Listings</a>
+    &rsaquo; List
     </div>
-    <!-- END Header -->
-    
-<div class="breadcrumbs">
-<a href="/admin/">Home</a>
-&rsaquo; <a href="/admin/listings/">Listings</a>
-&rsaquo; Listings
-</div>
 
     
 
@@ -103,7 +44,7 @@
 <div id="toolbar"><form id="changelist-search" method="get">
 <div><!-- DIV needed for valid HTML -->
 <label for="searchbar"><img src="/static/admin/img/search.svg" alt="Search"></label>
-<input type="text" size="40" name="q" value="" id="searchbar" autofocus>
+<input type="text" size="40" name="title" value="" id="searchbar" autofocus>
 <input type="submit" value="Search">
 
 
@@ -215,13 +156,14 @@
   
   <th class="field-id"><a href="/admin/listings/{{$listing->id}}/edit">{{$listing->id}}</a></th>
   <td class="field-title"><a href="/admin/listings/{{$listing->id}}/edit">{{$listing->title}}</a></td>
-  <td class="field-is_published">@if($listing->is_published == 'on')<p>yes</p>@endif </td>
+  <td class="field-is_published">@if($listing->is_published == 1)<img src="{{asset('images/icon-yes.svg')}}" alt="True">@endif </td>
   <td class="field-price">{{$listing->price}}</td>
   <td class="field-list_date nowrap">{{$listing->created_at}}</td>
   <td class="field-realtor nowrap">{{$listing->realtor->name}}</td></tr>
   @endforeach
 </tbody>
 </table>
+{{$listings->links()}}
 </div>
 
 
@@ -243,11 +185,4 @@
         
         <br class="clear">
     </div>
-    <!-- END Content -->
-
-    <div id="footer"></div>
-</div>
-<!-- END Container -->
-
-</body>
-</html>
+  </x-admin>

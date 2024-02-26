@@ -17,7 +17,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">
+            <a href="/">
               <i class="fas fa-home"></i> Home</a>
           </li>
           <li class="breadcrumb-item active"> About</li>
@@ -36,7 +36,8 @@
           <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
             neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
             commodi id libero eveniet harum perferendis laborum molestias quia.</p>
-        </div>
+          </div>
+          @if($MvpRealtor)
         <div class="col-md-4">
           <div class="card">
             <img class="card-img-top" src="{{$MvpRealtor->photo ? asset('storage/' . $MvpRealtor->photo) : asset('/images/kyle.jpg')}}" alt="Seller of the month">
@@ -48,6 +49,7 @@
             </div>
           </div>
         </div>
+        @endif
       </div>
     </div>
   </section>

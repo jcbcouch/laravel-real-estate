@@ -23,7 +23,14 @@ class ListingController extends Controller
                                            ->filter(request(['city']))
                                            ->filter(request(['bedrooms']))
                                            ->filter(request(['price']))
+                                           ->filter(request(['keywords']))
                                            ->paginate(6)
+        ]);
+    }
+
+    public function listings() {
+        return view('listings.listings', [
+            'listings' => Listing::latest()->paginate(6)
         ]);
     }
 }

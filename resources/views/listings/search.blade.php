@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <form action="search.html">
+          <form action="/search">
             <!-- Form Row 1 -->
             <div class="form-row">
               <div class="col-md-4 mb-3">
@@ -122,11 +122,11 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">
+            <a href="/">
               <i class="fas fa-home"></i> Home</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="listings.html">Browse Listings</a>
+            <a href="/listings">Browse Listings</a>
           </li>
           <li class="breadcrumb-item active"> Search Results</li>
         </ol>
@@ -140,6 +140,7 @@
       <div class="row">
 
         @foreach ($listings as $listing)
+        @if($listing->is_published == 1)
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card listing-preview">
             <img class="card-img-top" src="{{$listing->photo_main ? asset('storage/' . $listing->photo_main) : asset('/images/house.jpg')}}" alt="">
@@ -181,10 +182,12 @@
             </div>
           </div>
         </div>
+        @endif
         @endforeach
-
       </div>
+      {{$listings->links()}}
     </div>
   </section>
+
 
 </x-layout>

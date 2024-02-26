@@ -17,7 +17,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">
+            <a href="/">
               <i class="fas fa-home"></i> Home</a>
           </li>
           <li class="breadcrumb-item active"> Browse Listings</li>
@@ -33,6 +33,7 @@
 
         <!-- Listing 1 -->
         @foreach ($listings as $listing)
+        @if($listing->is_published == 1)
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card listing-preview">
             <img class="card-img-top" src="{{$listing->photo_main ? asset('storage/' . $listing->photo_main) : asset('/images/house.jpg')}}" alt="">
@@ -74,13 +75,14 @@
             </div>
           </div>
         </div>
+        @endif
         @endforeach
 
         
 
       </div>
 
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-md-12">
           <ul class="pagination">
             <li class="page-item disabled">
@@ -100,7 +102,8 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> --}}
+      {{$listings->links()}}
     </div>
   </section>
 
