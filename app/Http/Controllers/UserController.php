@@ -33,7 +33,7 @@ class UserController extends Controller
         auth()->login($user);
 
         if(auth()->user()->is_admin) {
-            return redirect('/admin/listings')->with('message', 'User created and logged in');
+            return redirect('/admin')->with('message', 'User created and logged in');
         }
         else
         {

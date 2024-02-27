@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/lightbox.min.css') }}">
 
-  <title>BT Real Estate</title>
+  <title>Real Estate</title>
 </head>
 
 <body>
